@@ -1,0 +1,35 @@
+<!--<script type="text/ng-template" id="/home.html"></script>-->
+        
+These are time Entries
+
+                    <div class="list-group">
+                        <div ng-repeat="timeEntry in timeEntries| orderBy:'-entryDate'">
+                                <!--    <a href="#/timeEntries/{{timeEntry._id}}" class="list-group-item"> -->
+                            <div href="#" class="list-group-item">
+                            <form class=" ng-pristine ng-valid" >
+                              <div class="row">
+                                <div class="col-sm-8">
+                                    <h4><i class="glyphicon glyphicon-user"></i>{{timeEntry.user}}</h4>
+                                </div>    
+                                <div class="col-sm-3  time-numbers">
+                                    <h4><i class="glyphicon glyphicon-calendar"></i>
+                                     {{moment(timeEntry.endTime, 'mm/dd/yyyy')}}
+                                {{timeEntry.elapsedTime | formatTime}}</h4>
+                                </div>
+                                
+                                <a ng-click="deleteTimeEntry(timeEntry,$index)"><i class="fa fa-minus-circle fa-2x" aria-hidden="true"></i></a>
+                                <a type="submit" ng-click="updateComment(timeEntry)">
+                                    <i class="fa fa-check-circle fa-2x" ></i>
+                                </a>
+                                
+                              </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <textarea class="col-sm-12 form-control" ng-model="timeEntry.comment"></textarea>
+                                    </div>
+                                </div>
+                            </form>
+                            </div>
+                        </div>
+                    </div>
+            

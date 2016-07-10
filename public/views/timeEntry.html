@@ -1,0 +1,23 @@
+<!--      <script type="text/ng-template" id="/timeEntry.html"></script> -->
+              <div class="page-header">
+              {{comment}}
+              <form class="navbar-form ng-pristine ng-valid" ng-submit="updateComment(timeEntry)">
+                    <div class="well timeEntries" >
+                            <div class="row">
+                                <div class="col-sm-8">
+                                    <h4><i class="glyphicon glyphicon-user"></i> 
+                                    {{timeEntry.user}}</h4>
+                                    <textarea class="form-control ng-pristine ng-untouched ng-valid" ng-model="timeEntry.comment" placeholder="Enter a comment" />                  
+                                </div>
+                                <div class="col-sm-4 time-numbers">
+                                    <h4><i class="glyphicon glyphicon-calendar"></i> 
+                                   {{timeEntry.elapsedTime | formatTime}}
+                                </div>
+
+                            </div>
+                            <button class="btn btn-primary" >Update</button>
+                    </div>
+                </form>
+              </div>
+        
+     

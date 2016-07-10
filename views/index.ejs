@@ -1,0 +1,104 @@
+<html>
+    <head>
+        <title>Time Tracker</title>
+        
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.js"></script>
+        
+        <!-----Bootstrap-->
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+        
+        <!------- Angularjs-->
+        <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.js"></script>-->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.js"></script>
+    
+         
+         <!-------- ui-select -------------------->
+        <script src="/javascripts/select.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular-sanitize.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-select/0.18.0/select.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular-animate.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.3.3/ui-bootstrap-tpls.js"></script>
+        
+        <!--<link rel="stylesheet" href="/stylesheets/select.css">--> 
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-select/0.18.0/select.css"> 
+        <!--<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/select2/3.4.5/select2.css">-->  
+        <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.8.5/css/selectize.default.css">
+        
+        
+         <script src="/javascripts/angularApp.js"></script>     
+        <script src="/javascripts/controllers.js"></script>
+        <script src="/javascripts/services.js"></script>
+        <script src="/javascripts/filters.js"></script>
+        <script src="/javascripts/directives.js"></script>
+        
+         
+       
+        <!------ Font Awesome -------------------        -->
+        <script src="https://use.fontawesome.com/12a4a5bdf5.js"></script>
+        
+        <!------ Angular Clock-->
+        <script src="/javascripts/angular-clock.js"></script>
+        <link rel="stylesheet" href="/stylesheets/angular-clock.css"> 
+        
+       
+        
+        
+         <!-- Angular Material style sheet -->
+        <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">       
+      
+        
+         <link rel="stylesheet" href="/stylesheets/styles.css"> 
+         <link rel="stylesheet" href="/stylesheets/login.css"> 
+        
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>  
+        <!--<script src="/javascripts/moment.js"></script>-->
+        <script src="/javascripts/angular-moment.js"></script>
+        
+        
+        
+    </head>
+    
+ <body ng-app="timeTracker" ui-router-styles>
+    
+    <div ng-controller="NavCtrl"> 
+    <nav class="navbar navbar-default" >
+        <div class="container">
+            <a class="navbar-brand" href="#">Time Tracker</a>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li ng-show="isLoggedIn()"><a href="#"><img class="user_avatar" src="/images/user_avatar.png"> {{currentUser() }}</a> </li>
+                    <li ng-show="isLoggedIn()"><a href="" ng-click="logOut()">Log Out</a></li>
+                    <li ng-hide="isLoggedIn()"><a href="/#/login">Log In</a></li>
+                    <li ng-hide="isLoggedIn()"><a href="/#/register">Register</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+
+     <div ng-hide="isLoggedIn()">
+  <h3>You need to <a href="/#/login">Log In</a> or <a href="/#/register">Register</a> before you can comment.</h3>
+</div>
+    </div> 
+     
+     <ui-view id="mainOne"></ui-view>
+     
+                
+      <!-- Angular Material requires Angular.js Libraries -->
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-aria.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-messages.min.js"></script>
+
+  <!-- Angular Material Library -->
+  <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.js"></script>
+      
+      
+  </body>
+</html>
+       

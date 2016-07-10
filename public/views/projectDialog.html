@@ -1,0 +1,32 @@
+<!--      <script type="text/ng-template" id="myModalContent.html"></script>-->
+<div class="modal-header">
+            <h3 class="modal-title">Manage Projects</h3>
+        </div>
+        <div class="modal-body">
+ <form name="projectEntryForm" >
+        <div class="input-group" style="margin:10px">
+           
+               <a ng-click="addProject()" class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
+                <input type="text" ng-model="newProjectName" class="form-control" placeholder="Add new Project" aria-describedby="basic-addon1">
+          
+        </div>
+</form>
+
+        <md-list ng-cloak>
+      <md-list-item ng-repeat="project in projects track by $index" style="height:5px;">
+    <md-checkbox class="col col-sm-2" ng-change="updateProject(project)" ng-model="project.isActive"></md-checkbox>
+    <p class="col col-sm-8">{{project.name}}</p>
+     <a ng-click="deleteProject(project,$index)"><i class="fa fa-minus-circle fa-2x col col-sm-2-right" aria-hidden="true"></i></a>      
+     <!--<a ng-click="deleteProject(project,$index)"><i class="material-icons">message</i></a>-->
+    <!--<md-icon class="material-icons" ng-click="deleteProject(project,$index)" aria-label="Chat" md-svg-icon="message"></md-icon>-->
+    <!--<md-icon class="icon_home" aria-label="Home"></md-icon>-->
+    
+  </md-list-item>
+</md-list>
+</div>
+
+<div class="modal-footer">
+            <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+            <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+        </div>
+    

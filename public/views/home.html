@@ -1,0 +1,89 @@
+            
+  <div class="container">
+         <div class="jumbotron">
+             <div class="row">
+
+                 <div class="col-md-3" >
+
+                    <div id="panel_clock_widget" class="panel panel-default">
+                      <div class="panel-body">
+                        <ds-widget-clock theme="dark" digital-format="'hh:mm:ss a'"></ds-widget-clock>
+                      </div>
+                    </div>
+                 </div>
+                 
+                 <div class="col-md-7 col-md-offset-2" ng-controller="MainCtrl">
+                
+                <!--
+                  <form name="myForm" style="display: flex; flex-direction: row;;justify-content: center">
+                    <select name="mySelect" id="mySelect" style="margin:10px 0px 0px 20px; width:400px;font-size:70pt;text-align:center;mar"
+                      ng-options="todo.title for todo in todos|filter:{done:true} track by todo.id "
+                      ng-model="selectedItem"></select>
+                  </form>
+                -->
+   
+                  
+               <div style="display: flex; flex-direction: row;justify-content: center" >     
+    <ui-select ng-model="selectedProject" theme="selectize" ng-disabled="ctrl.disabled" style="width: 400px;margin-top:3px;" search-enabled="true" title="Choose a country">
+    <ui-select-match placeholder="Select or search a country in the list..." >{{$select.selected.name}}</ui-select-match>
+    <ui-select-choices repeat="project in projects|filter:{isActive:true} track by project._id| filter:$select.search" >
+     <span ng-bind-html="project.name | highlight: $select.search" ></span>
+      <!--<small ng-bind-html="project._id | highlight: $select.search"></small>-->
+    </ui-select-choices>
+  </ui-select>
+<i class="fa fa-pencil-square fa-3x" aria-hidden="true" style="padding-left:3px;" ng-click="open('lg')"></i>   
+                     </div>
+
+
+                     
+                     
+                     <div ng-repeat="options in stopwatches" style="margin-top:20px;">
+            <div style="display: flex; flex-direction: row; margin: 0 auto;justify-content: center" >
+                <div style="display: flex; flex-direction: row; margin: 0 auto;justify-content: center" bb-stopwatch options="options">
+                    <a ng-click="startTimer()" ng-show="!isRunning()"><i class="fa fa-play-circle fa-5x"></i></a>
+                    <a ng-click="stopTimer()" ng-hide="!isRunning()"><i class="fa fa-pause-circle fa-5x"></i></a> 
+                    <a ng-click="resetTimer()"><i class="fa fa-stop-circle fa-5x"></i></a>
+                <div class="stopwatch-timer label label-primary">
+                  <div>{{options.elapsedTime | stopwatchTime}}</div>
+                  <div class=" "></div>
+                </div>
+            </div>
+            </div>
+                          </div> 
+                     
+                    <form name="timeEntryForm" ng-submit="addTimeEntry()">
+                    <fieldset class="form-group"></fieldset>
+                      <fieldset class="form-group">
+                         <!--<label for="formGroupExampleInput">Example label</label>-->
+                          <textarea class="form-control" rows="3" placeholder="Enter your comments" ng-model="timeEntry.comment"  required></textarea>
+                      </fieldset>
+                      <fieldset class="form-group" style="justify-content: center;">
+                        <div class="col-md-3 col-sm-offset-3 text-center">
+                        <button type="submit" class="btn btn-primary btn-md btn-block text-center">Save</button>
+                        </div>
+                        <div class="col-md-3 text-center">
+                        <button type="reset" id="singlebutton" name="singlebutton" class="btn btn-primary btn-md btn-block" ng-click="clearFields()">Clear</button>
+                        </div>
+
+                      </fieldset>
+                     </form> 
+                  </div>
+                </div>
+            </div>
+
+            <div class="row" ng-controller="MainCtrl">
+                <div class="col-md-3">
+                  <ul class="nav nav-pills nav-stacked">
+                    <li role="presentation" class="active"><a href="#/timeEntries/filterByDate/search/today" ui-sref="home.filter">Today</a></li>
+                    <li role="presentation"><a href="#/timeEntries/filterByDate/search/yesterday"  ui-sref="home.filter">Yesterday</a></li>
+                    <li role="presentation"><a href="#/home">Show All</a></li>
+                  </ul>
+                </div>
+                
+                <div class="col-md-9" >
+                   <ui-view id="child"></ui-view>
+                </div>
+            </div>
+        </div>
+
+
