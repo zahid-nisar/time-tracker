@@ -9,7 +9,9 @@ var passport = require('passport');
 var moment = require('moment');
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/TimeTracker');
+//mongoose.connect('mongodb://localhost/TimeTracker');
+mongoose.connect('mongodb://zahid nisar:pforpassword@ds040489.mlab.com:40489/time-tracker/TimeTracker');
+
 
 require('./models/TimeEntries');
 require('./models/Projects');

@@ -4,7 +4,22 @@ var app = angular.module('timeTracker', ['ui.router', 'ngAnimate', 'ui.bootstrap
 app.config(['$stateProvider','$urlRouterProvider' ,function($stateProvider, $urlRouterProvider){ 
             $stateProvider
             
-                
+            
+            .state('default', {
+                 url: '/',
+                  templateUrl: '/views/home.html',
+                  controller: 'MainCtrl',
+                 onEnter: ['$state', 'auth', function($state, auth){
+                        if(auth.isLoggedIn()){
+                          //$state.go('home');
+                        }
+                        else
+                        {
+                            $state.go('login');      
+                        }
+                            
+                }]
+            })
             
             .state('index', {
                   url: '/index',
