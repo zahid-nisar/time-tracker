@@ -23,14 +23,18 @@
                 -->
    
                   
-               <div style="display: flex; flex-direction: row;justify-content: center" >     
-    <ui-select ng-model="selectedProject" theme="selectize" ng-disabled="ctrl.disabled" style="width: 400px;margin-top:3px;" search-enabled="true" title="Choose a country">
-    <ui-select-match placeholder="Select or search a country in the list..." >{{$select.selected.name}}</ui-select-match>
+               <div style="display: flex; flex-direction: row;justify-content: center" >
+                   
+    <ui-select ng-model="selectedProject" theme="selectize"  style="width: 400px;margin-top:3px;" search-enabled="true" title="Choose a project">
+    <ui-select-match placeholder="Select or search a prooject in the list..." >{{$select.selected.name}}</ui-select-match>
     <ui-select-choices repeat="project in projects|filter:{isActive:true} track by project._id| filter:$select.search" >
      <span ng-bind-html="project.name | highlight: $select.search" ></span>
-      <!--<small ng-bind-html="project._id | highlight: $select.search"></small>-->
+     
     </ui-select-choices>
   </ui-select>
+                   
+                   
+                   
 <i class="fa fa-pencil-square fa-3x" aria-hidden="true" style="padding-left:3px;" ng-click="open('lg')"></i>   
                      </div>
 
